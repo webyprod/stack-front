@@ -1,0 +1,26 @@
+<h2>Post Details</h2> 
+
+<hr/>
+<div *ngIf="post">
+  <div>
+    <label><b>Author :</b></label> {{post.username}}
+  </div>
+  <div>
+    <label><b>Subject : </b></label> {{post.subject}}
+  </div>
+  <div>
+    <label><b>Message : </b></label> {{post.message}}
+  </div>
+<div *ngIf="post.comments">
+  <div *ngFor="let comment of post.comments">
+    <p>
+      <span>comment.username</span><br>
+      <span>comment.texte</span>
+    </p>
+  </div> 
+</div> 
+</div>
+
+<br>
+<br>
+<button (click)="listPosts()" class="btn btn-primary">Back to posts List</button><br>

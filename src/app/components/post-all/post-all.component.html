@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Posts List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Subject</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts | async">
+          <td>{{post.username}}</td>
+          <td>{{post.subject}}</td>
+          <td>{{post.message}}</td>
+          <td><!--<button (click)="deleteUser(user.username)" class="btn btn-danger">Delete</button>-->
+              <button (click)="postDetails(post.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

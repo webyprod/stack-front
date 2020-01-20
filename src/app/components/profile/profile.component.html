@@ -1,0 +1,26 @@
+<h2>Employee Details</h2> 
+
+<hr/>
+<div *ngIf="user">
+  <div>
+    <label><b>First Name: </b></label> {{user.name}}
+  </div>
+  <div>
+    <label><b>Last Name: </b></label> {{user.username}}
+  </div>
+  <div>
+    <label><b>Email: </b></label> {{user.email}}
+  </div>
+<div *ngIf="user.posts">
+  <div *ngFor="let posts of user.posts">
+    <p>
+      <span>posts.subject</span><br>
+      <span>posts.message</span>
+    </p>
+  </div> 
+</div> 
+</div>
+
+<br>
+<br>
+<button (click)="listUsers()" class="btn btn-primary">Back to Employee List</button><br>

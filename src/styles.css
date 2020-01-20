@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+nav .haut {
+    margin-bottom : 50px;
+   
+}
+
+.navbar {
+    border-radius: 0px!important;
+}
