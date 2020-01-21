@@ -9,12 +9,13 @@ import {PostAllComponent} from './components/post-all/post-all.component';
 import {PostsFromUserComponent} from './components/posts-from-user/posts-from-user.component';
 import {PostDetailsComponent} from './components/post-details/post-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
     {path:'', component:HomeComponent},
     {path:'auth/login', component:LoginComponent},
-    {path:'auth/register', component:RegisterComponent},
-    {path:'user/:username', component:ProfileComponent},
+    {path:'auth/registration', component:RegisterComponent},
+    {path:'user/:username', component:ProfileComponent, canActivate: [AuthService]},
     {path:'user/all', component:UserAllComponent},
     {path:'user/:username/posts', component:PostsFromUserComponent},
     {path:'post/all', component:PostAllComponent},

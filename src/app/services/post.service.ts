@@ -13,11 +13,11 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   findAllPosts(): Observable<any> {
-    return this.http.get(API_URL + "post/all"/*, {headers: {"Content-Type": "application/json; charset=UTF-8"}}*/);
+    return this.http.get(API_URL + "post/all", {headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
   findPost(id: number): Observable<any>{
-    return this.http.get(API_URL + "post/" + id/*, {headers: {"Content-Type": "application/json; charset=UTF-8"}}*/);
+    return this.http.get(API_URL + "post/" + id, {headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
   savePost(data: object): Observable<Object> {

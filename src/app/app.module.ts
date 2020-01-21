@@ -12,6 +12,7 @@ import { UserAllComponent } from './components/user-all/user-all.component';
 import { PostAllComponent } from './components/post-all/post-all.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { PostsFromUserComponent } from './components/posts-from-user/posts-from-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PostsFromUserComponent } from './components/posts-from-user/posts-from-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

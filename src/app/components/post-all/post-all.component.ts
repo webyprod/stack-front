@@ -11,7 +11,7 @@ import { PostService } from '../../services/post.service';
 })
 export class PostAllComponent implements OnInit {
 
-  posts: Observable<Post[]>;
+  posts: Observable<any>;
 
   constructor(private postService: PostService,
     private router: Router) { }

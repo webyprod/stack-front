@@ -1,13 +1,13 @@
 <form>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="username" required [(ngModel)]="user.username">
+    <input type="text" class="form-control" id="username" placeholder="username" name="username" required [(ngModel)]="user.username">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="user.password">
+    <input type="password" class="form-control" id="password" placeholder="Password" name="password" required [(ngModel)]="user.password">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
-<p>Vous n'avez pas encore de compte ? Cliquer <a routerLink="/auth/register">ici</a></p>
+<p>Vous n'avez pas encore de compte ? Cliquer <a routerLink="/auth/registration">ici</a></p>

@@ -15,7 +15,7 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private router: Router,
     private postService: PostService) { }
-
+/*
   ngOnInit() {
     this.post = new Post();
 
@@ -23,6 +23,8 @@ export class PostDetailsComponent implements OnInit {
 
     this.postService.findPost(this.id).subscribe(data => {this.post = data}, error => console.log(error));
   }
+  */
+ ngOnInit() {}
 
   listPosts(){
     this.router.navigate(['post/all']);
