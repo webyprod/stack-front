@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     }
 
     listUsers(){
-      this.router.navigate(['/user/all']);
+      this.router.navigate(['/users/all']);
     }
 
   }

@@ -27,7 +27,7 @@ export class PostDetailsComponent implements OnInit {
  ngOnInit() {}
 
   listPosts(){
-    this.router.navigate(['post/all']);
+    this.router.navigate(['posts/all']);
   }
 
 }

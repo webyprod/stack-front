@@ -16,9 +16,9 @@ const routes: Routes = [
     {path:'auth/login', component:LoginComponent},
     {path:'auth/registration', component:RegisterComponent},
     {path:'user/:username', component:ProfileComponent, canActivate: [AuthService]},
-    {path:'user/all', component:UserAllComponent},
+    {path:'users/all', component:UserAllComponent},
     {path:'user/:username/posts', component:PostsFromUserComponent},
-    {path:'post/all', component:PostAllComponent},
+    {path:'posts/all', component:PostAllComponent},
     {path:'post/:id', component:PostDetailsComponent},
     {path:'post/new', component:NewPostComponent},
   ];

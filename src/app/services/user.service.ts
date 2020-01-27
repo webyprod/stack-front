@@ -25,7 +25,7 @@ export class UserService {
       authorization:'Basic ' + btoa(user.username + ':' + user.password)
     }:{});
 
-    return this.http.get<any> (API_URL + "api/user/login", {headers: headers})
+    return this.http.get<any> (API_URL + "auth/login", {headers: headers})
     .pipe(map(response => {
       if(response){
         localStorage.setItem('currentUser', JSON.stringify(response));
@@ -36,7 +36,7 @@ export class UserService {
   }
 
   logOut(): Observable<any> {
-    return this.http.post(API_URL + "api/user/logout", {})
+    return this.http.post(API_URL + "auth/logout", {})
     .pipe(map(response => {
       localStorage.removeItem('currentUser');
       this.currentUserSubject.next(null);
@@ -44,11 +44,11 @@ export class UserService {
   }
 
   register(user: User): Observable<any> {
-    return this.http.post(API_URL + "api/user/register", JSON.stringify(user),{headers: {"Content-Type":"application/json; charset=UTF-8"}});
+    return this.http.post(API_URL + "auth/registration", user/*,{headers: {"Content-Type":"application/json; charset=UTF-8"}}*/);
   }
 
   findAllUsers(): Observable<any> {
-    return this.http.get(API_URL + "user/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    return this.http.get(API_URL + "users/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
   /*findAllPostsOfUsers(username: string): Observable<any> {
