@@ -35,6 +35,12 @@ export class UserService {
     }));
   }
 
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem("username");
+    console.log(!(user === null));
+    return !(user === null);
+  }
+
   logOut(): Observable<any> {
     return this.http.post(API_URL + "auth/logout", {})
     .pipe(map(response => {
@@ -50,10 +56,6 @@ export class UserService {
   findAllUsers(): Observable<any> {
     return this.http.get(API_URL + "users/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
-
-  /*findAllPostsOfUsers(username: string): Observable<any> {
-    return this.http.get(API_URL + "user/" + username + "/posts", {headers:{"Content-Type": "application/json; charset=UTF-8"}});
-  }*/
 
   findUser(username: string): Observable<any> {
     return this.http.get(API_URL  + "user/" + username, {headers: {"Content-Type": "application/json; charset=UTF-8"}});

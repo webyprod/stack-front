@@ -15,11 +15,10 @@ const routes: Routes = [
     {path:'', component:HomeComponent},
     {path:'auth/login', component:LoginComponent},
     {path:'auth/registration', component:RegisterComponent},
-    {path:'user/:username', component:ProfileComponent, canActivate: [AuthService]},
+    {path:'user/:username', component:ProfileComponent/*, canActivate: [AuthService]*/},
     {path:'users/all', component:UserAllComponent},
-    {path:'user/:username/posts', component:PostsFromUserComponent},
     {path:'posts/all', component:PostAllComponent},
-    {path:'post/:id', component:PostDetailsComponent},
+    {path:'onepost/:id', component:PostDetailsComponent},
     {path:'post/new', component:NewPostComponent},
   ];
   
