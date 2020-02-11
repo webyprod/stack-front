@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse haut" style="margin-bottom:60px;">
+<nav class="navbar haut" style="margin-bottom:60px;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,10 +16,13 @@
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/users/all">Users</a></li>
         <li><a routerLink="/posts/all">Posts</a></li>
-        <li><a routerLink="/post/new">New Post</a></li>
+        <li><a routerLink="/post/new" *ngIf="isLoggedIn">New Post</a></li>
+        <li><a routerLink="/profil"  class="nav-link" *ngIf="isLoggedIn">Profil</a></li>
+        <li><a href class="nav-link" (click)="logout()" *ngIf="isLoggedIn">LogOut</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="!isLoggedIn">
         <li><a routerLink="/auth/login">Login</a></li>
+        <li><a routerLink="/auth/registration">Register</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -31,6 +33,6 @@
 <router-outlet></router-outlet>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
+<nav class="navbar">
 <p style="text-align:center"><img src="http://www.chordata.fr/fichiers/logo2.png" width="50"/></p>
 </nav>

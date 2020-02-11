@@ -8,3 +8,8 @@ nav .haut {
 .navbar {
     border-radius: 0px!important;
 }
+
+a {
+    color : red;
+    font-weight: bold;
+}

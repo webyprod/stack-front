@@ -6,7 +6,6 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {NewPostComponent} from './components/new-post/new-post.component';
 import {UserAllComponent} from './components/user-all/user-all.component';
 import {PostAllComponent} from './components/post-all/post-all.component';
-import {PostsFromUserComponent} from './components/posts-from-user/posts-from-user.component';
 import {PostDetailsComponent} from './components/post-details/post-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/auth.service';
@@ -15,7 +14,7 @@ const routes: Routes = [
     {path:'', component:HomeComponent},
     {path:'auth/login', component:LoginComponent},
     {path:'auth/registration', component:RegisterComponent},
-    {path:'user/:username', component:ProfileComponent/*, canActivate: [AuthService]*/},
+    {path:'profil', component:ProfileComponent},
     {path:'users/all', component:UserAllComponent},
     {path:'posts/all', component:PostAllComponent},
     {path:'onepost/:id', component:PostDetailsComponent},

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { TokenService } from '../../services/token.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,22 +10,19 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  username: string;
-  user: User;
+  currentUser: any;
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private userService: UserService) { }
+  constructor(private token: TokenService) { }
 
   ngOnInit() {
-    this.user = new User();
-
+    /*this.user = new User();
     this.username = this.route.snapshot.params['username'];
-
-    this.userService.findUser(this.username).subscribe(data => { this.user = data;}, error => console.log(error));
+    this.userService.findUser(this.username).subscribe(data => { this.user = data;}, error => console.log(error));*/
+    this.currentUser = this.token.getUser();
     }
 
-    listUsers(){
+    /*listUsers(){
       this.router.navigate(['/users/all']);
-    }
+    }*/
 
   }

@@ -7,10 +7,16 @@ import {User} from '../models/user';
 
 let API_URL = "http://localhost:8082/";
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  
 
   public currentUser: Observable<User>;
   private currentUserSubject: BehaviorSubject<User>;
@@ -20,19 +26,20 @@ export class UserService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  login(user: User): Observable<any> {
-    const headers = new HttpHeaders(user ? {
-      authorization:'Basic ' + btoa(user.username + ':' + user.password)
-    }:{});
+  login(credentials): Observable<any> {
+    return this.http.post(API_URL + "auth/login", {
+      username: credentials.username,
+      password: credentials.password
+    }, httpOptions);
+  }
 
-    return this.http.get<any> (API_URL + "auth/login", {headers: headers})
-    .pipe(map(response => {
-      if(response){
-        localStorage.setItem('currentUser', JSON.stringify(response));
-        this.currentUserSubject.next(response);
-      }
-      return response;
-    }));
+  register(user): Observable<any> {
+    return this.http.post(API_URL + "auth/registration", {
+      username: user.username,
+      name: user.name,
+      email: user.email,
+      password: user.password
+    }, httpOptions);
   }
 
   isUserLoggedIn() {
@@ -49,9 +56,6 @@ export class UserService {
     }));
   }
 
-  register(user: User): Observable<any> {
-    return this.http.post(API_URL + "auth/registration", user/*,{headers: {"Content-Type":"application/json; charset=UTF-8"}}*/);
-  }
 
   findAllUsers(): Observable<any> {
     return this.http.get(API_URL + "users/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
@@ -64,5 +68,26 @@ export class UserService {
   deleteUser(username: string): Observable<any> {
     return this.http.delete(API_URL + username, { responseType: 'text' });
   }
+
+
+      /*login(user: User): Observable<any> {
+    const headers = new HttpHeaders(user ? {
+      authorization:'Basic ' + btoa(user.username + ':' + user.password)
+    }:{});
+
+    return this.http.get<any> (API_URL + "auth/login", {headers: headers})
+    .pipe(map(response => {
+      if(response){
+        localStorage.setItem('currentUser', JSON.stringify(response));
+        this.currentUserSubject.next(response);
+      }
+      return response;
+    }));
+  }*/
+
+  /*register(user: User): Observable<any> {
+    return this.http.post(API_URL + "auth/registration", user,{headers: {"Content-Type":"application/json; charset=UTF-8"}});
+  }*/
+
 
 }

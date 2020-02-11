@@ -20,8 +20,12 @@ export class PostService {
     return this.http.get(API_URL + "post/" + id, {headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
-  savePost(data: object): Observable<Object> {
-    return this.http.post(API_URL + "post/new", data)
+  savePost(data): Observable<Object> {
+    return this.http.post(API_URL + "post/new", {
+      username: data.username,
+      subject: data.subject,
+      message: data.message
+    })
   }
 
 }
