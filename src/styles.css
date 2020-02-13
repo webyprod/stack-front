@@ -13,3 +13,19 @@ a {
     color : red;
     font-weight: bold;
 }
+
+body > app-root > nav.navbar.haut > div > div.navbar-header > button {
+    background-color: black;
+}
+
+body > app-root > nav.navbar.haut > div > div.navbar-header > button > span {
+    background-color: white;
+}
+
+body > app-root > nav.navbar.haut {
+    background-color: rgb(198,229,235);
+}
+
+body > app-root > nav:nth-child(3) {
+    background-color: rgb(211,218,215);
+}
