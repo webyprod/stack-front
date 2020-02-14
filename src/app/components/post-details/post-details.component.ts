@@ -15,16 +15,13 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private router: Router,
     private postService: PostService) { }
-/*
+
   ngOnInit() {
     this.post = new Post();
-
     this.id = this.route.snapshot.params['id'];
-
     this.postService.findPost(this.id).subscribe(data => {this.post = data}, error => console.log(error));
   }
-  */
- ngOnInit() {}
+
 
   listPosts(){
     this.router.navigate(['posts/all']);

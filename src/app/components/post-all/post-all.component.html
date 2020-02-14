@@ -12,12 +12,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let post of posts | async">
+        <tr *ngFor="let post of posts">
           <td>{{post.username}}</td>
           <td>{{post.subject}}</td>
           <td>{{post.message}}</td>
-          <td><!--<button (click)="deleteUser(user.username)" class="btn btn-danger">Delete</button>
-              <button (click)="postDetails(post.postId)" class="btn btn-info" style="margin-left: 10px">Details</button>-->
+          <td><button (click)="postDetails(post.postId)" class="btn btn-info" style="margin-left: 10px">Details</button>
           </td>
         </tr>
       </tbody>

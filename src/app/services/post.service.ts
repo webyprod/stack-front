@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { Post } from '../models/post';
 
 let API_URL = "http://localhost:8082/";
 
@@ -12,20 +13,16 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  findAllPosts(): Observable<any> {
-    return this.http.get(API_URL + "posts/all", {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  findAllPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(API_URL + "posts/all", {headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
-  findPost(id: number): Observable<any>{
-    return this.http.get(API_URL + "post/" + id, {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  findPost(id: number): Observable<Post>{
+    return this.http.get<Post>(API_URL + "onepost/" + id);
   }
 
-  savePost(data): Observable<Object> {
-    return this.http.post(API_URL + "post/new", {
-      username: data.username,
-      subject: data.subject,
-      message: data.message
-    })
+  savePost(post: Post): Observable<Post> {
+    return this.http.post<Post>(API_URL + "post/new", post)
   }
 
 }

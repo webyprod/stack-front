@@ -16,6 +16,7 @@ export class NewPostComponent implements OnInit {
 
   item: any = {};
   isSuccessful = false;
+  newpost: Post = new Post();
   createPostFailed = false;
   currentUser: any;
   errorMessage = '';
@@ -33,7 +34,10 @@ export class NewPostComponent implements OnInit {
 
   onSubmit() {
     this.item.username = this.currentUser.username;
-    this.postService.savePost(this.item).subscribe(
+    this.newpost.username = this.item.username;
+    this.newpost.subject = this.item.subject;
+    this.newpost.message = this.item.message;
+    this.postService.savePost(this.newpost).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

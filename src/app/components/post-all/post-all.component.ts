@@ -11,7 +11,7 @@ import { PostService } from '../../services/post.service';
 })
 export class PostAllComponent implements OnInit {
 
-  posts: Observable<any>;
+  posts: Post[];
 
   constructor(private postService: PostService,
     private router: Router) { }
@@ -21,11 +21,13 @@ export class PostAllComponent implements OnInit {
   }
 
   reloadData() {
-    this.posts = this.postService.findAllPosts();
+    this.postService.findAllPosts().subscribe((data)=> {
+        this.posts = data;
+    });
   }
 
   postDetails(id: number){
-    this.router.navigate(['/post/:id', id]);
+    this.router.navigate(['/onepost/', id]);
   }
 
 }

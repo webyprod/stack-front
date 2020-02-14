@@ -25,7 +25,7 @@ export class UserAllComponent implements OnInit {
   }
 
   userDetails(username: string){
-    this.router.navigate(['user', username]);
+    this.router.navigate(['/user', username]);
   }
 
   deleteUser(username: string) {

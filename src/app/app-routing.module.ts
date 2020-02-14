@@ -10,11 +10,15 @@ import {PostDetailsComponent} from './components/post-details/post-details.compo
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/auth.service';
 
+
+
+
 const routes: Routes = [
     {path:'', component:HomeComponent},
     {path:'auth/login', component:LoginComponent},
     {path:'auth/registration', component:RegisterComponent},
-    {path:'profil', component:ProfileComponent},
+    {path:'user/:username', component:ProfileComponent},
+    /*{path:'user/:username', component:ProfileComponent},*/
     {path:'users/all', component:UserAllComponent},
     {path:'posts/all', component:PostAllComponent},
     {path:'onepost/:id', component:PostDetailsComponent},

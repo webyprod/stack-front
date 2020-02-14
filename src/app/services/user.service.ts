@@ -57,16 +57,16 @@ export class UserService {
   }
 
 
-  findAllUsers(): Observable<any> {
-    return this.http.get(API_URL + "users/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  findAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + "users/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
-  findUser(username: string): Observable<any> {
-    return this.http.get(API_URL  + "user/" + username, {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  findUser(username: string): Observable<User> {
+    return this.http.get<User>(API_URL  + "user/" + username, {headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
   deleteUser(username: string): Observable<any> {
-    return this.http.delete(API_URL + username, { responseType: 'text' });
+    return this.http.delete(API_URL + "user/" + username, { responseType: 'text' });
   }
 
 
