@@ -20,13 +20,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*register(){
-    this.userService.register(this.user).subscribe(data => {
-      this.router.navigate(['/auth/login']);
-    },err => {
-      this.errorMessage = "Username is already exist";
-    });
-  }*/
 
   onSubmit() {
     this.userService.register(this.form).subscribe(
