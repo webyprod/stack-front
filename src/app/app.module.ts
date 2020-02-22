@@ -13,6 +13,7 @@ import { PostAllComponent } from './components/post-all/post-all.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { PostsFromUserComponent } from './components/posts-from-user/posts-from-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NewCommentComponent } from './components/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserAllComponent,
     PostAllComponent,
     PostDetailsComponent,
-    PostsFromUserComponent
+    PostsFromUserComponent,
+    NewCommentComponent
   ],
   imports: [
     BrowserModule,

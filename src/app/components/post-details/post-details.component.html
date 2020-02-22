@@ -1,26 +1,45 @@
-<h2>Post Details</h2> 
-
 <hr/>
 <div *ngIf="post">
+  
   <div>
-    <label><b>Author :</b></label> {{post.user}}
-  </div>
-  <div>
-    <label><b>Subject : </b></label> {{post.subject}}
+    <h2>{{post.subject}}</h2>
   </div>
   <div>
     <label><b>Message : </b></label> {{post.message}}
   </div>
-<div *ngIf="post.comments">
-  <div *ngFor="let comment of post.comments">
-    <p>
-      <span>comment.username</span><br>
-      <span>comment.texte</span>
-    </p>
-  </div> 
-</div> 
+
+  <div>
+    <label><b>Author :</b></label> {{post.user}}
+  </div>
+
+  <ul>
+    <li *ngFor="let comment of post.answers">
+        <span>{{comment.username}}</span><br>
+        <span>{{comment.texte}}</span>
+    </li>
+  </ul> 
+ 
 </div>
 
 <br>
 <br>
 <button (click)="listPosts()" class="btn btn-primary">Back to posts List</button><br>
+
+
+
+
+
+<p>Post a comment</p>
+<form class="form-horizontal"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <div class="form-group">
+    <label for="message">Text</label>
+    <textarea class="form-control" rows="5" id="message" name="texte" required [(ngModel)]="item.texte" #message="ngModel"></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <div class="alert alert-warning" *ngIf="f.submitted && createCommentFailed">
+    Comment Creation failed!<br /> {{ errorMessage }}
+  </div>
+</form>
+<div class="alert alert-success" *ngIf="isSuccessful">
+  Your comment was created successfully!
+</div>

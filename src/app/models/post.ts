@@ -10,13 +10,7 @@ export class Post {
       public username: string;
     
     public userId?: User;
-    public comments?: Comments[];
-
-    /*constructor(subject: string, message: string, user: string){
-      this.subject = subject;
-      this.message = message;
-      this.username = user;
-    }*/
+    public answers: Comments[];
   
     
 }
