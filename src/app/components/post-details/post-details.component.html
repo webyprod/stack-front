@@ -1,24 +1,29 @@
-<hr/>
+
 <div *ngIf="post">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">{{post.subject}}</h2>
+    </div>
+  </div>
+
+  <blockquote>
+    <p>{{post.message}}</p>
+    <footer><em>[{{post.publishDate | date: 'medium'}}] by {{post.user}}</em></footer>
+  </blockquote>
   
-  <div>
-    <h2>{{post.subject}}</h2>
-  </div>
-  <div>
-    <label><b>Message : </b></label> {{post.message}}
-  </div>
+  <hr/>
 
-  <div>
-    <label><b>Author :</b></label> {{post.user}}
-  </div>
 
-  <ul>
-    <li *ngFor="let comment of post.answers">
-        <span>{{comment.username}}</span><br>
-        <span>{{comment.texte}}</span>
-    </li>
-  </ul> 
- 
+<div class="row" *ngFor="let comment of post.answers">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <blockquote>
+  <div class="col-md-4" style="text-align: center; vertical-align: middle; height:100%; font-family:verdana"><span>{{comment.username}}</span></div>
+  <div class="col-md-8" ><span>{{comment.texte}}</span></div>
+    </blockquote>
+</div>
+  <div class="col-md-1"></div>
 </div>
 
 <br>
@@ -28,7 +33,7 @@
 
 
 
-
+<div *ngIf="isLoggedIn">
 <p>Post a comment</p>
 <form class="form-horizontal"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
   <div class="form-group">
@@ -42,4 +47,5 @@
 </form>
 <div class="alert alert-success" *ngIf="isSuccessful">
   Your comment was created successfully!
+</div>
 </div>

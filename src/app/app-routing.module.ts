@@ -19,7 +19,6 @@ const routes: Routes = [
     {path:'auth/login', component:LoginComponent},
     {path:'auth/registration', component:RegisterComponent},
     {path:'user/:username', component:ProfileComponent},
-    /*{path:'post/:id/comment', component:NewCommentComponent},*/
     {path:'users/all', component:UserAllComponent},
     {path:'posts/all', component:PostAllComponent},
     {path:'onepost/:id', component:PostDetailsComponent},

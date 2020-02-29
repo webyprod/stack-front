@@ -20,12 +20,14 @@ export class PostDetailsComponent implements OnInit {
   isSuccessful: boolean;
   createCommentFailed: boolean;
   errorMessage: string;
+  isLoggedIn: boolean;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private postService: PostService, private token: TokenService) { }
 
   ngOnInit() {
     this.post = new Post();
+    this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();
     this.id = this.route.snapshot.params['id'];
     this.postService.findPost(this.id).subscribe(data => {this.post = data}, error => console.log(error));
