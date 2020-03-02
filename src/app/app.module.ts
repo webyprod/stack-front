@@ -11,7 +11,6 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { UserAllComponent } from './components/user-all/user-all.component';
 import { PostAllComponent } from './components/post-all/post-all.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
-import { PostsFromUserComponent } from './components/posts-from-user/posts-from-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
 
@@ -26,7 +25,6 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
     UserAllComponent,
     PostAllComponent,
     PostDetailsComponent,
-    PostsFromUserComponent,
     NewCommentComponent
   ],
   imports: [

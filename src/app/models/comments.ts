@@ -10,8 +10,4 @@ export class Comments {
     user: User;
     post: Post;
 
-    /*constructor(texte: string, username: string){
-      this.texte = texte;
-      this.username = username;
-    }*/
   }

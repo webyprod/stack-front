@@ -3,14 +3,14 @@ import { Comments } from './comments';
 
 export class Post {
 
-      public postId: number;
-      public subject: string;
-      public message: string;
-      public publishDate: string;
-      public username: string;
-    
+    public postId: number;
+    public subject: string;
+    public message: string;
+    public publishDate: string;
+    public username: string;
+    public category: string;
     public userId?: User;
     public answers: Comments[];
-  
+    
     
 }

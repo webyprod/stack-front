@@ -7,10 +7,22 @@
     <label for="message">Message</label>
     <textarea class="form-control" rows="10" id="message" name="message" required [(ngModel)]="item.message" #message="ngModel"></textarea>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-  <div class="alert alert-warning" *ngIf="f.submitted && createPostFailed">
-    Post Creation failed!<br />{{ errorMessage }}
+  <div class="form-group">
+    <label for="category">Category of the Post</label>
+    <select size="1" [(ngModel)]="item.category" #skill="ngModel" class="form-control" name="category" id="category">
+    <option [value]="JAVA">JAVA</option>
+    <option [value]="HTML">HTML</option>
+    <option [value]="CSS">CSS</option>
+    <option [value]="JAVASCRIPT">JAVASCRIPT</option>
+    <option [value]="FRONTEND">FRONTEND</option>
+    <option [value]="BACKEND">BACKEND</option>
+    <option [value]="ANGULAR">ANGULAR</option>
+    <option [value]="REACT">REACT</option>
+    <option [value]="PHP">PHP</option>
+    </select>
   </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <div class="alert alert-warning" *ngIf="f.submitted && createPostFailed">Post Creation failed!<br />{{ errorMessage }}</div>
 </form>
 <div class="alert alert-success" *ngIf="isSuccessful">
   Your post was created successfully!

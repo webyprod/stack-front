@@ -38,9 +38,9 @@
 </div>
 <div *ngIf="user.posts">
   <div *ngFor="let post of user.posts">
-    <p>
+    <p><a [routerLink]="['/onepost', post.postId]">
       <span>{{ post.subject }}</span><br>
-      <span>{{ post.message }}</span>
+      <span>{{ post.message }}</span></a>
     </p>
   </div> 
 </div> 

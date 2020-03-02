@@ -17,11 +17,14 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
+
+
   ngOnInit() {
   }
 
 
   onSubmit() {
+    console.log("skill" + this.form.skill);
     this.userService.register(this.form).subscribe(
       data => {
         console.log(data);

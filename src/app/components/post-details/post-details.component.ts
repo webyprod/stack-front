@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
+import { UserService } from '../../services/user.service';
 import { Post } from 'src/app/models/post';
+import { User } from 'src/app/models/user';
 import { Comments } from '../../models/comments';
 import { TokenService } from '../../services/token.service';
 
@@ -21,16 +23,27 @@ export class PostDetailsComponent implements OnInit {
   createCommentFailed: boolean;
   errorMessage: string;
   isLoggedIn: boolean;
+  enabled: boolean;
+  user = new User();
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private postService: PostService, private token: TokenService) { }
+    private postService: PostService, private userService: UserService, private token: TokenService) { }
 
   ngOnInit() {
     this.post = new Post();
     this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();
     this.id = this.route.snapshot.params['id'];
+    if (this.isLoggedIn){
+      this.userService.findUser(this.currentUser.username).subscribe((data)=> {
+      this.user = data;
+    });
+    if (this.user.skill != undefined && this.post.category != undefined){
+    this.enabled = this.post.category.toLowerCase() == this.user.skill.toLowerCase();
+    }
+  }
     this.postService.findPost(this.id).subscribe(data => {this.post = data}, error => console.log(error));
+    
   }
 
 

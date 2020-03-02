@@ -37,6 +37,7 @@ export class NewPostComponent implements OnInit {
     this.newpost.username = this.item.username;
     this.newpost.subject = this.item.subject;
     this.newpost.message = this.item.message;
+    this.newpost.category = this.item.category;
     this.postService.savePost(this.newpost).subscribe(
       data => {
         console.log(data);

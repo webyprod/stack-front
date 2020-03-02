@@ -1,0 +1,3 @@
+export enum Category {
+    FRONTEND, BACKEND, JAVA, HTML, CSS, JAVASCRIPT, ANGULAR, REACT, PHP
+}
