@@ -13,6 +13,7 @@ import { PostAllComponent } from './components/post-all/post-all.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

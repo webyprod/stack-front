@@ -38,7 +38,8 @@ export class UserService {
       username: user.username,
       name: user.name,
       email: user.email,
-      password: user.password
+      password: user.password,
+      skill: user.skill
     }, httpOptions);
   }
 

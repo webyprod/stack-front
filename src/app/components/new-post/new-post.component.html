@@ -1,4 +1,4 @@
-<form class="form-horizontal" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+<form class="form-horizontal" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
   <div class="form-group">
     <label for="subject">Subject</label>
     <input type="text" class="form-control" id="subject" placeholder="subject" name="subject" required [(ngModel)]="item.subject" #subject="ngModel">
@@ -9,16 +9,8 @@
   </div>
   <div class="form-group">
     <label for="category">Category of the Post</label>
-    <select size="1" [(ngModel)]="item.category" #skill="ngModel" class="form-control" name="category" id="category">
-    <option [value]="JAVA">JAVA</option>
-    <option [value]="HTML">HTML</option>
-    <option [value]="CSS">CSS</option>
-    <option [value]="JAVASCRIPT">JAVASCRIPT</option>
-    <option [value]="FRONTEND">FRONTEND</option>
-    <option [value]="BACKEND">BACKEND</option>
-    <option [value]="ANGULAR">ANGULAR</option>
-    <option [value]="REACT">REACT</option>
-    <option [value]="PHP">PHP</option>
+    <select size="1" [(ngModel)]="item.category" #category="ngModel" class="form-control" name="category" id="category">
+      <option [value]="catego" *ngFor="let catego of categories">{{catego}}</option>
     </select>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>

@@ -9,6 +9,7 @@
           <th>Author</th>
           <th>Subject</th>
           <th>Message</th>
+          <th>Category</th>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +17,7 @@
           <td>{{post.user}}</td>
           <td>{{post.subject}}</td>
           <td>{{post.message}}</td>
+          <td>{{post.category}}</td>
           <td><button (click)="postDetails(post.postId)" class="btn btn-info" style="margin-left: 10px">Details</button>
           </td>
         </tr>

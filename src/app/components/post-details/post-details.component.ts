@@ -38,11 +38,18 @@ export class PostDetailsComponent implements OnInit {
       this.userService.findUser(this.currentUser.username).subscribe((data)=> {
       this.user = data;
     });
-    if (this.user.skill != undefined && this.post.category != undefined){
-    this.enabled = this.post.category.toLowerCase() == this.user.skill.toLowerCase();
-    }
+    
+    
+    
   }
-    this.postService.findPost(this.id).subscribe(data => {this.post = data}, error => console.log(error));
+    this.postService.findPost(this.id).subscribe(data => {
+      this.post = data;
+      console.log(this.post.category);
+      console.log(this.user.skill);
+      this.enabled = this.post.category === this.user.skill;
+    }, error => console.log(error));
+    
+    
     
   }
 

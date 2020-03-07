@@ -27,12 +27,15 @@ export class NewPostComponent implements OnInit {
     this.currentUser = this.token.getUser();
   }
 
+  categories = ["JAVA", "HTML", "CSS", "JAVASCRIPT", "FRONTEND", "BACKEND", "ANGULAR", "REACT", "PHP"];
+
   newPost():void{
     this.submitted=false;
     
   }
 
-  onSubmit() {
+  onSubmit(s) {
+    console.log(s);
     this.item.username = this.currentUser.username;
     this.newpost.username = this.item.username;
     this.newpost.subject = this.item.subject;
