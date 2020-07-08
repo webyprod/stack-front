@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private userService: UserService, private tokenStorage: TokenService) { }
+  constructor(private userService: UserService, private tokenStorage: TokenService, private router: Router) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -25,14 +25,6 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
     }
   }
-
-  /*login(){
-    this.userService.login(this.user).subscribe(data => {
-      this.router.navigate(['user/:username']);
-    },err => {
-      this.errorMessage = "Username or password is incorrect.";
-    });
-  }*/
 
   onSubmit() {
     this.userService.login(this.form).subscribe(
@@ -43,7 +35,10 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        //this.router.navigate(['users/all']);
         this.reloadPage();
+        alert("Connexion successfull");
+        setTimeout(function(){ this.router.navigate(['users/all']); }, 3000);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -51,6 +46,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
 
   reloadPage() {
     window.location.reload();

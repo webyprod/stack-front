@@ -1,0 +1,11 @@
+span.subject{
+    font-size:18px;
+    font-family:verdana;
+}
+
+span.message{
+    font-size:15px;
+    font-family: "trebuchet ms";
+    font-style: italic;
+    color:blue;
+}

@@ -2,15 +2,25 @@
 
 nav .haut {
     margin-bottom : 50px;
-   
 }
 
 .navbar {
     border-radius: 0px!important;
 }
 
+div.container {
+    margin-bottom: 80px;
+}
+
+nav.bas{
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    margin-bottom: 0px!important;
+}
+
 a {
-    color : red;
+    color : white;
     font-weight: bold;
 }
 
@@ -23,9 +33,14 @@ body > app-root > nav.navbar.haut > div > div.navbar-header > button > span {
 }
 
 body > app-root > nav.navbar.haut {
-    background-color: rgb(198,229,235);
+    background-color: #087144;
 }
 
 body > app-root > nav:nth-child(3) {
-    background-color: rgb(211,218,215);
+    background-color:#087144;
+}
+
+div.alert-danger {
+    padding : 10 px!important;
+    border-radius: 5px;
 }

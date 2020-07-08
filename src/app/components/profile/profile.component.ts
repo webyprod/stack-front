@@ -20,11 +20,6 @@ export class ProfileComponent implements OnInit {
   constructor(private token: TokenService, private userService: UserService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    /*this.user = new User();
-    this.username = this.route.snapshot.params['username'];
-    this.userService.findUser(this.username).subscribe(data => { this.user = data;}, error => console.log(error));
-    this.currentUser = this.token.getUser();
-    this.username = this.currentUser.username;*/
     this.username = this.route.snapshot.params['username'];
     this.userService.findUser(this.username).subscribe((data)=> {
       this.user = data;

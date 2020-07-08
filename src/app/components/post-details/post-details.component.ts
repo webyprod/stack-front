@@ -39,8 +39,6 @@ export class PostDetailsComponent implements OnInit {
       this.user = data;
     });
     
-    
-    
   }
     this.postService.findPost(this.id).subscribe(data => {
       this.post = data;
@@ -48,11 +46,7 @@ export class PostDetailsComponent implements OnInit {
       console.log(this.user.skill);
       this.enabled = this.post.category === this.user.skill;
     }, error => console.log(error));
-    
-    
-    
   }
-
 
   listPosts(){
     this.router.navigate(['posts/all']);
@@ -66,7 +60,6 @@ export class PostDetailsComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.createCommentFailed = false;
-        //this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       },
       err => {
         this.errorMessage = err.error.message;

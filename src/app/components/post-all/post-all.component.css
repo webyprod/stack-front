@@ -1,0 +1,15 @@
+td.sp {
+    font-family: "comic sans ms";
+    color:red;
+    font-weight:bold;
+    font-size:12px;
+}
+ 
+div.pagination {
+    width:100%;
+}
+
+div.pagination ul.pagination {
+    width:70%;
+    margin:auto;
+}

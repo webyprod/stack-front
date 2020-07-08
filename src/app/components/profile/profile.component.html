@@ -1,30 +1,3 @@
-<!--<h2>Employee Details</h2> 
-
-<hr/>
-<div *ngIf="user">
-  <div>
-    <label><b>First Name: </b></label> {{user.name}}
-  </div>
-  <div>
-    <label><b>Last Name: </b></label> {{user.username}}
-  </div>
-  <div>
-    <label><b>Email: </b></label> {{user.email}}
-  </div>
-<div *ngIf="user.posts">
-  <div *ngFor="let posts of user.posts">
-    <p>
-      <span>posts.subject</span><br>
-      <span>posts.message</span>
-    </p>
-  </div> 
-</div> 
-</div>
-
-<br>
-<br>
-<button (click)="listUsers()" class="btn btn-primary">Back to Employee List</button><br>-->
-
 <div class="container">
   <header class="jumbotron">
     <h3>
@@ -35,12 +8,23 @@
     <strong>Email:</strong>
     {{ user.email }}
   </p>
+  <p>
+    <strong>Skill:</strong>
+    {{ user.skill }}
+  </p>
 </div>
+
+<hr>
+
+<h3>Posts</h3>
+<br>
+
 <div *ngIf="user.posts">
   <div *ngFor="let post of user.posts">
-    <p><a [routerLink]="['/onepost', post.postId]">
-      <span>{{ post.subject }}</span><br>
-      <span>{{ post.message }}</span></a>
+    <p>
+      <span class="subject">Subject : {{ post.subject }}</span><br>
+      <a [routerLink]="['/onepost', post.postId]">
+      <span class="message">Message : {{ post.message }}</span></a>
     </p>
   </div> 
 </div> 

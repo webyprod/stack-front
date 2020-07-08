@@ -9,7 +9,7 @@ export class User {
     email: string;
     password: string;
     skill: string;
-    role: Role;
+    roles: Role;
     posts: Post[];
     comments: Comments[];
     token: string;

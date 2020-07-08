@@ -58,8 +58,8 @@ export class UserService {
   }
 
 
-  findAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(API_URL + "users/all",{headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  findAllUsers(page:number): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + "users/all?page="+page,{headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
   findUser(username: string): Observable<User> {

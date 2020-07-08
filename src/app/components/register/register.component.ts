@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   skills = ["JAVA", "HTML", "CSS", "JAVASCRIPT", "FRONTEND", "BACKEND", "ANGULAR", "REACT", "PHP"];
 
@@ -29,6 +29,8 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.router.navigate(['auth/login']);
+        alert("Registration successfull");
       },
       err => {
         this.errorMessage = err.error.message;

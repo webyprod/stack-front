@@ -18,10 +18,16 @@
           <td>{{post.subject}}</td>
           <td>{{post.message}}</td>
           <td>{{post.category}}</td>
+          <td class="sp">{{enableData(post)}}</td>
           <td><button (click)="postDetails(post.postId)" class="btn btn-info" style="margin-left: 10px">Details</button>
           </td>
         </tr>
       </tbody>
     </table>
+    <div class="pagination">
+    <ul class="pagination">
+      <li *ngFor="let p of pages; let i=index"><a href="#" (click)="setPage(i, $event)" [ngClass]="{'active':i==page}">{{i}}</a></li>
+    </ul>
+    </div>
   </div>
 </div>

@@ -14,8 +14,8 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  findAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(API_URL + "posts/all", {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  findAllPosts(page:number): Observable<Post[]> {
+    return this.http.get<Post[]>(API_URL + "posts/all?page="+page, {headers: {"Content-Type": "application/json; charset=UTF-8"}});
   }
 
   findPost(id: number): Observable<Post>{
