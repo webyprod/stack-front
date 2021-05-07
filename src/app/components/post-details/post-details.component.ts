@@ -40,12 +40,15 @@ export class PostDetailsComponent implements OnInit {
     });
     
   }
+
     this.postService.findPost(this.id).subscribe(data => {
       this.post = data;
       console.log(this.post.category);
       console.log(this.user.skill);
       this.enabled = this.post.category === this.user.skill;
     }, error => console.log(error));
+
+    
   }
 
   listPosts(){

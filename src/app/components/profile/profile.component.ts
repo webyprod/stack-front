@@ -23,12 +23,8 @@ export class ProfileComponent implements OnInit {
     this.username = this.route.snapshot.params['username'];
     this.userService.findUser(this.username).subscribe((data)=> {
       this.user = data;
-    });
+    }); 
+  }
 
-    }
-
-    /*listUsers(){
-      this.router.navigate(['/users/all']);
-    }*/
 
   }
